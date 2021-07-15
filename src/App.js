@@ -4,11 +4,11 @@
 import React, { useEffect, useState } from 'react';
 
 const App = () => {
-  const [value, setValue] = useState(); // put default value here () 
+  const [value, setValue] = useState(""); // put default value here () 
   
   useEffect(() => {
-    console.log("do a task when the component loads");
-  }, []);
+    console.log("do a task when the variable value changes");
+  }, [value]);
 
   const handleChange = (e) => setValue(e.target.value);
   
