@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 
 const App = () => {
-  const [value, setValue] = useState('10'); // default value 0
+  const [value, setValue] = useState(); // put default value here () 
   
   const handleChange = (e) => setValue(e.target.value);
   
@@ -15,7 +15,7 @@ const App = () => {
         value={value}
         onChange={handleChange}
       />
-      <p>{value}</p>
+      <p>{value?value:"empty"}</p>
       <button onClick={()=> setValue("12300")}>Buy</button>
     </div>
   );
