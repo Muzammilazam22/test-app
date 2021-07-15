@@ -1,11 +1,15 @@
 // import logo from './logo.svg';
 // import './App.css';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const App = () => {
   const [value, setValue] = useState(); // put default value here () 
   
+  useEffect(() => {
+    console.log("do a task when the component loads");
+  }, []);
+
   const handleChange = (e) => setValue(e.target.value);
   
   return (
