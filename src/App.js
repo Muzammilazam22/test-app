@@ -12,12 +12,21 @@ const App = () => {
 
   const handleChange = (e) => setValue(e.target.value);
 
+  const add = (a, b) => {
+    a++;
+    b--;
+    return a + b + 1;
+  };
+  const a = add(2, 5);
+  console.log("a", a);
+
   return (
     <div>
       <input type="text" value={value} onChange={handleChange} />
       <p>{value ? value : "empty"}</p>
       <button onClick={() => setValue("Muzammil Azam")}>Buy</button>
     </div>
+    //console.Log("Empty");
   );
 };
 
