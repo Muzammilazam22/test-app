@@ -1,33 +1,18 @@
-// import logo from './logo.svg';
-// import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Person from "./Person/Person.js";
 
-import React, { useEffect, useState } from "react";
-
-const App = () => {
-  const [value, setValue] = useState(""); // put default value here ()
-
-  useEffect(() => {
-    console.log("do a task when the variable value changes");
-  }, [value]);
-
-  const handleChange = (e) => setValue(e.target.value);
-
-  const add = (a, b) => {
-    a++;
-    b--;
-    return a + b + 1;
-  };
-  const a = add(2, 5);
-  console.log("a", a);
-
-  return (
-    <div>
-      <input type="text" value={value} onChange={handleChange} />
-      <p>{value ? value : "empty"}</p>
-      <button onClick={() => setValue("Muzammil Azam")}>Buy</button>
-    </div>
-    //console.Log("Empty");
-  );
-};
-
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <h1>Hi, this is my first app in react</h1>
+        <Person name="Muzammil Azam" age="23" />
+        <Person name="Muneeb Zubair " age="22" />
+        <Person name="Abraham Peter " age="24" />
+        <Person name= "Muzammil Azam" age="23"> My hobbies: Watch Seasons</Person>
+      </div>
+    );
+  }
+}
 export default App;
