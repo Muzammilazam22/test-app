@@ -19,9 +19,7 @@ const App = (props) => {
     otherState: "some other values",
   });
 
-  const [otherState,setOtherState] = useState('some other value');
-
-
+  const [otherState, setOtherState] = useState("some other value");
 
   // class App extends Component {
   //   // var something =someValue;
@@ -81,7 +79,7 @@ const App = (props) => {
   // }
 
   const switchNameHandler = () => {
-    console.log('was clicked! ');
+    console.log("was clicked! ");
     // DON'T DO THIS: this.state.persons[0].name ='Muzammil';
     setPersons({
       persons: [
@@ -121,26 +119,21 @@ const App = (props) => {
       <person
         name={personState.persons[0].name}
         age={personState.persons[0].age}
-        />
-        <Person name={personState.persons[1].name} age={personState.persons[1].age}>
+      />
+      <Person
+        name={personState.persons[1].name}
+        age={personState.persons[1].age}
+        click={switchNameHandler}
+      >
+        my Hobbies: Racing
+      </Person>
 
-          my Hobbies: Racing  
-
-
-        </Person>
-
-        <Person name={personState.persons[2].name} age={personState.persons[2].age}>
-
-          my Hobbies: Racing  
-
-
-        </Person>
-
-          
-
-     
-
-
+      <Person
+        name={personState.persons[2].name}
+        age={personState.persons[2].age}
+      >
+        my Hobbies: Racing
+      </Person>
     </div>
   );
 };
