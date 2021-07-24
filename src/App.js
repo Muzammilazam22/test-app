@@ -10,7 +10,16 @@ import Person from "./Person/Person.js";
 // NOW WE WRITE OUR CODE AS FUNCTIONAL COMPONENT
 
 const App = (props) => {
-  const [personState, setPersons] = useState({
+  const style = {
+    width: "60%",
+    margin: "auto",
+    border: "1px solid #aea",
+    boxShadow: "0 2px 3px #ccc",
+    padding: "16px",
+    textAlign: "center",
+  };
+
+  const [state, setState] = useState({
     persons: [
       { name: "Muzammil Azam", age: 24 },
       { name: "Ghassan", age: 24 },
@@ -81,20 +90,25 @@ const App = (props) => {
   const switchNameHandler = () => {
     console.log("was clicked! ");
     // DON'T DO THIS: this.state.persons[0].name ='Muzammil';
-    setPersons({
+    console.log("state.persons[0].age", state.persons[0].age);
+    setState({
       persons: [
-        { name: "M  ", age: 24 },
-        { name: "Muteeb", age: 24 },
+        { name: "M  ", age: state.persons[0].age + 1 },
+
+        { name: "Muneeb zubair", age: state.persons[1].age + 1 },
         { name: "Muhammad Haris", age: 23 },
       ],
-      otherState: personState.otherState,
+      otherState: state.otherState,
     });
   };
 
   return (
     <div className="App">
       <h1>Hi, this is my first app in react</h1>
-      <button onClick={switchNameHandler}>Switch Button.</button>
+
+      <button style={style} onClick={switchNameHandler}>
+        Switch Button.
+      </button>
 
       {/* <Person name="Muzammil Azam" age="23" />
       <Person name="Muneeb Zubair " age="22" />
@@ -116,22 +130,16 @@ const App = (props) => {
         age={personState.persons[2].age}
       /> */}
 
-      <person
-        name={personState.persons[0].name}
-        age={personState.persons[0].age}
-      />
+      <person name={state.persons[0].name} age={state.persons[0].age} />
       <Person
-        name={personState.persons[1].name}
-        age={personState.persons[1].age}
+        name={state.persons[1].name}
+        age={state.persons[1].age}
         click={switchNameHandler}
       >
         my Hobbies: Racing
       </Person>
 
-      <Person
-        name={personState.persons[2].name}
-        age={personState.persons[2].age}
-      >
+      <Person name={state.persons[2].name} age={state.persons[2].age}>
         my Hobbies: Racing
       </Person>
     </div>
