@@ -19,7 +19,7 @@ const App = (props) => {
     otherState: "some other values",
   });
 
-  const [otherState, setOtherState] = useState("some other value");
+  //const [otherState, setOtherState] = useState("some other value");
 
   // class App extends Component {
   //   // var something =someValue;
