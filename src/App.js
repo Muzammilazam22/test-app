@@ -94,7 +94,7 @@ const App = (props) => {
   return (
     <div className="App">
       <h1>Hi, this is my first app in react</h1>
-      <button onClick={switchNameHandler}>Switch Button</button>
+      <button onClick={switchNameHandler}>Switch Button.</button>
 
       {/* <Person name="Muzammil Azam" age="23" />
       <Person name="Muneeb Zubair " age="22" />
