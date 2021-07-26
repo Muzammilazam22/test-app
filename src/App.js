@@ -19,15 +19,22 @@ const App = (props) => {
     textAlign: "center",
   };
 
-  const [state, setState] = useState({
-    persons: [
-      { name: "Muzammil Azam", age: 24 },
-      { name: "Ghassan", age: 24 },
-      { name: "Muhammad Haris", age: 23 },
-    ],
-    otherState: "some other values",
-    showPersons: true,
-  });
+  const [persons, setPerson] = useState([
+    { name: "Muzammil Azam", age: 24 },
+    { name: "Ghassan", age: 24 },
+    { name: "Muhammad Haris", age: 23 },
+  ]);
+  const [showPersons, setShowPersons] = useState(true);
+
+  // const [state, setState] = useState({
+  //   persons: [
+  //     { name: "Muzammil Azam", age: 24 },
+  //     { name: "Ghassan", age: 24 },
+  //     { name: "Muhammad Haris", age: 23 },
+  //   ],
+  //   otherState: "some other values",
+  //   showPersons: true,
+  // });
 
   //const [otherState, setOtherState] = useState("some other value");
 
@@ -91,26 +98,27 @@ const App = (props) => {
   const switchNameHandler = () => {
     console.log("was clicked! ");
     // DON'T DO THIS: this.state.persons[0].name ='Muzammil';
-    console.log("state.persons[0].age", state.persons[0].age);
-    setState({
-      persons: [
-        { name: "M  ", age: state.persons[0].age + 1 },
+    console.log("state.persons[0].age", persons[0].age);
+    // setState({
+    //   persons: [
+    //     { name: "M  ", age: state.persons[0].age + 1 },
 
-        { name: "Muneeb zubair", age: state.persons[1].age + 1 },
-        { name: "Muhammad Haris", age: 23 },
-      ],
-      otherState: state.otherState,
-      showPersons: state.showPersons,
-    });
+    //     { name: "Muneeb zubair", age: state.persons[1].age + 1 },
+    //     { name: "Muhammad Haris", age: 23 },
+    //   ],
+    //   otherState: state.otherState,
+    //   showPersons: state.showPersons,
+    // });
   };
 
   const togglePersonHandler = () => {
-    const doesShow = state.showPersons;
-    setState({
-      persons: { ...state.persons },
-      showPersons: !doesShow,
-      otherState: "ji",
-    });
+    const doesShow = showPersons;
+    setShowPersons(!doesShow);
+    // setState({
+    //   persons: { ...state.persons },
+    //   showPersons: !doesShow,
+    //   otherState: "ji",
+    // });
   };
 
   // Alternative Method
@@ -144,18 +152,18 @@ const App = (props) => {
         name={personState.persons[2].name}
         age={personState.persons[2].age}
       /> */}
-      {state.showPersons ? (
+      {showPersons ? (
         <div>
-          <person name={state.persons[0].name} age={state.persons[0].age} />
+          <person name={persons[0].name} age={persons[0].age} />
           <Person
-            name={state.persons[1].name}
-            age={state.persons[1].age}
+            name={persons[1].name}
+            age={persons[1].age}
             click={switchNameHandler}
           >
             my Hobbies: Racing
           </Person>
 
-          <Person name={state.persons[2].name} age={state.persons[2].age}>
+          <Person name={persons[2].name} age={persons[2].age}>
             my Hobbies: Racing
           </Person>
         </div>
