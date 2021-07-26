@@ -19,11 +19,11 @@ const App = (props) => {
     textAlign: "center",
   };
 
-  const [persons, setPerson] = useState([
+  const persons=[
     { name: "Muzammil Azam", age: 24 },
     { name: "Ghassan", age: 24 },
     { name: "Muhammad Haris", age: 23 },
-  ]);
+  ];
   const [showPersons, setShowPersons] = useState(true);
 
   // const [state, setState] = useState({
