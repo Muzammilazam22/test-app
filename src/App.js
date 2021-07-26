@@ -125,7 +125,11 @@ const App = (props) => {
   if (showPersons) {
     Persons = (
       <div>
-        <person name={persons[0].name} age={persons[0].age} />
+        {persons.map((persons) => {
+          return <Persons name={persons.name} age={persons.age} />;
+        })}
+
+        {/* <person name={persons[0].name} age={persons[0].age} />
         <Person
           name={persons[1].name}
           age={persons[1].age}
@@ -136,7 +140,7 @@ const App = (props) => {
 
         <Person name={persons[2].name} age={persons[2].age}>
           my Hobbies: Racing
-        </Person>
+        </Person> */}
       </div>
     );
   }
