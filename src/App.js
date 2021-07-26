@@ -19,7 +19,7 @@ const App = (props) => {
     textAlign: "center",
   };
 
-  const persons=[
+  const persons = [
     { name: "Muzammil Azam", age: 24 },
     { name: "Ghassan", age: 24 },
     { name: "Muhammad Haris", age: 23 },
@@ -121,6 +121,26 @@ const App = (props) => {
     // });
   };
 
+  let Persons = null;
+  if (showPersons) {
+    Persons = (
+      <div>
+        <person name={persons[0].name} age={persons[0].age} />
+        <Person
+          name={persons[1].name}
+          age={persons[1].age}
+          click={switchNameHandler}
+        >
+          my Hobbies: Racing
+        </Person>
+
+        <Person name={persons[2].name} age={persons[2].age}>
+          my Hobbies: Racing
+        </Person>
+      </div>
+    );
+  }
+
   // Alternative Method
   // const togglePersonHandler = () =>
   //   setState({ showPersons: !state.showPersons });
@@ -152,7 +172,7 @@ const App = (props) => {
         name={personState.persons[2].name}
         age={personState.persons[2].age}
       /> */}
-      {showPersons ? (
+      {Persons ? (
         <div>
           <person name={persons[0].name} age={persons[0].age} />
           <Person
