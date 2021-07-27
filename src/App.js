@@ -27,7 +27,11 @@ const App = (props) => {
 
   //
   const deletePersonHandler = async (personIndex) => {
-    const personsCopy = persons.filter((p, i) => personIndex !== i);
+    // const personsCopy = persons.filter((p, i) => personIndex !== i);
+    // setPersons(personsCopy);
+
+    const personsCopy = [...persons];
+    personsCopy.splice(personIndex, 1);
     setPersons(personsCopy);
   };
   const togglePersonHandler = () => {
