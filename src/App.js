@@ -5,6 +5,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Person from "./Person/Person.js";
+import Radium, { StyleRoot } from "radium";
 
 // NOW WE WRITE OUR CODE AS FUNCTIONAL COMPONENT
 
@@ -16,6 +17,15 @@ const App = (props) => {
     boxShadow: "0 2px 3px #ccc",
     padding: "16px",
     textAlign: "center",
+    backgroundColor: "green",
+    color: "white",
+    font: "inherit",
+    cursor: "pointer",
+
+    ":hover": {
+      backgroundColor: "lightgreen",
+      color: "black",
+    },
   };
 
   const [persons, setPersons] = useState([
@@ -39,7 +49,7 @@ const App = (props) => {
     setShowPersons(!doesShow);
   };
 
-  let Persons = "null";
+  let Persons = "";
   if (showPersons) {
     Persons = (
       <div>
@@ -57,22 +67,39 @@ const App = (props) => {
         })}
       </div>
     );
+    style.backgroundColor = "Blue";
+    style[":hover"] = {
+      backgroundColor: "lightgreen",
+      color: "black",
+    };
+  }
+
+  /// SETTING CLASS NAMES DYNAMICALLY
+
+  const classes = [];
+  if (persons.length <= 2) {
+    classes.push("red");
+  }
+  if (persons.length <= 1) {
+    classes.push("bold");
   }
 
   return (
-    <div className="App">
-      <h1>Hi, this is my first app in react</h1>
+    <StyleRoot>
+      <div className="App">
+        <h1>Hi, this is my first app in react</h1>
+        <p className={classes.join(" ")}>this is really working! </p>
+        <button style={style} onClick={togglePersonHandler}>
+          Switch Button.
+        </button>
 
-      <button style={style} onClick={togglePersonHandler}>
-        Switch Button.
-      </button>
-
-      {Persons}
-    </div>
+        {Persons}
+      </div>
+    </StyleRoot>
   );
 };
 
-export default App;
+export default Radium(App);
 
 // const [state, setState] = useState({
 //   persons: [

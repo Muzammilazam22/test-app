@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Radium from "radium";
 
 import "./Person.css";
 
@@ -7,6 +8,15 @@ const Person = (props) => {
   useEffect(() => {
     setName(props.name);
   }, [props.name]);
+
+  // const person = (props) => {
+  //   const style = {
+  //     "@media (min-width: 500px)": {
+  //       width: "450px",
+  //     },
+  //   };
+  // };
+
   return (
     <div className="Person">
       <p onClick={props.onClick}>
@@ -17,10 +27,5 @@ const Person = (props) => {
     </div>
   );
 };
-export default Person;
 
-/* <p>
-    {" "}
-    I'm {props.name} and my age is {Math.floor(Math.random() * 25)} years
-    old{" "}
-  </p> */
+export default Radium(Person);
