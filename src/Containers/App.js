@@ -4,7 +4,7 @@
 
 import React, { useState } from "react";
 import "./App.css";
-import Person from "./Person/Person.js";
+import Person from "./Components/Persons/Person/Person.js";
 import Radium, { StyleRoot } from "radium";
 
 // NOW WE WRITE OUR CODE AS FUNCTIONAL COMPONENT
